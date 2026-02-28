@@ -388,6 +388,16 @@ footer strong {
   color: var(--primary);
 }
 
+.author-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.author-link:hover {
+  text-decoration: underline;
+}
+
 .disclaimer {
   font-size: 0.75rem;
   opacity: 0.7;
