@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Content Detector</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="logo">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
+          </svg>
+          <h1>AI Content Detector</h1>
+        </div>
+        <p class="subtitle">
+          Upload an image or video to detect if it was AI-generated
+        </p>
+      </header>
+
+      <main>
+        <div class="upload-section">
+          <div class="upload-area" id="dropZone">
+            <div class="upload-icon">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+            </div>
+            <p class="upload-text">
+              Drag & drop your file here or
+              <span class="browse-link">browse</span>
+            </p>
+            <p class="upload-constraints">
+              Images: JPG, PNG, GIF, WebP (max 10MB)<br />
+              Videos: MP4, WebM, MOV (max 30MB, max 2 min)
+            </p>
+            <input
+              type="file"
+              id="fileInput"
+              accept="image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm,video/quicktime"
+              hidden
+            />
+          </div>
+        </div>
+
+        <div class="preview-section hidden" id="previewSection">
+          <div class="preview-container">
+            <button class="remove-btn" id="removeBtn" title="Remove file">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <img id="imagePreview" class="hidden" alt="Preview" />
+            <video
+              id="videoPreview"
+              class="hidden"
+              controls
+              muted
+            ></video>
+            <div class="file-info" id="fileInfo"></div>
+          </div>
+
+          <button class="analyze-btn" id="analyzeBtn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            Analyze Content
+          </button>
+        </div>
+
+        <div class="loading-section hidden" id="loadingSection">
+          <div class="spinner"></div>
+          <p class="loading-text">Analyzing your content with Gemini AI...</p>
+          <p class="loading-subtext">This may take a moment</p>
+        </div>
+
+        <div class="result-section hidden" id="resultSection">
+          <div class="result-card" id="resultCard">
+            <div class="result-header">
+              <div class="result-badge" id="resultBadge"></div>
+              <div class="confidence-meter">
+                <div class="confidence-label">Confidence</div>
+                <div class="confidence-bar">
+                  <div class="confidence-fill" id="confidenceFill"></div>
+                </div>
+                <div class="confidence-value" id="confidenceValue"></div>
+              </div>
+            </div>
+            <div class="result-details">
+              <h3>Analysis Details</h3>
+              <div class="result-text" id="resultText"></div>
+            </div>
+            <div class="result-indicators" id="resultIndicators"></div>
+          </div>
+          <button class="try-again-btn" id="tryAgainBtn">
+            Analyze Another File
+          </button>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          Powered by
+          <strong>Firebase AI Logic</strong> &
+          <strong>Gemini 2.5 Flash</strong>
+        </p>
+        <p class="disclaimer">
+          Results are AI-assisted estimates and may not be 100% accurate.
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "ai-content-detector",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Detect if an image or video is AI-generated using Firebase AI Logic with Gemini",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^12.10.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.21"
+  }
+}
